@@ -173,7 +173,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Our novel quadrotor offers omnidirectional control over position and orientation for improved inspection capabilities
+        Our novel quadrotor offers near-omnidirectional control over position and orientation for improved inspection capabilities
       </h2>
     </div>
   </div>
@@ -228,14 +228,31 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We can put the abstract here
+In this work, we design a novel quadrotor morphology (see the CAD model picture on the right) with rotor thrust-vectoring capabilities. 
+Accompanying this design, we present a full-stack autonomy method for controlling arbitrary thrust-vectored UAVs. This level of control enables
+our quadrotor to achieve near-omnidirectionality, a significant departure from traditional fixed-body designs. The morphable structure enhances the quadrotor’s adaptability,
+allowing it to maintain stable flight and precise control from arbitrary orientations even in the presence of external disturbances or partial
+system failures. This robustness is particularly crucial for applications in unpredictable and challenging environments (such as in outdoor inspection applications),
+where maintaining stability and control can be of paramount importance. 
           </p>
-          <p>
-            Another paragraph here
-          </p>
+
         </div>
       </div>
     </div>
+
+    <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <figure class="image">
+            <img src="./static/images/quad_with_labels.png" alt="CAD Model of the Quadrotor">
+            <figcaption class="is-italic">
+                Quadrotor CAD model with an additional 
+                <strong style="color: red;">primary joint</strong> and 
+                <strong style="color: rgb(53, 171, 255);">secondary joint</strong> per rotor
+              </figcaption>
+          </figure>
+        </div>
+    </div>
+
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
@@ -289,6 +306,20 @@
     </div>
     <!--/ Matting. -->
 
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+            <h2 class="title is-3">Real World Testing</h2>
+    
+            <div class="content has-text-justified">
+            <p>
+                Here we can show some of the work that we've been doing to build this in the real world... (maybe saying that we have something working in PX4 SITL?)
+            </p>
+            </div>
+        </div>
+        </div>
+        <!--/ Concurrent Work. -->
 
 
     <!-- Concurrent Work. -->
