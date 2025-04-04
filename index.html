@@ -116,10 +116,10 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">University of Michigan</span>,
-            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            <span class="author-block"><sup>*</sup>Ordered Alphabetically</span>
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">ICRA 2025 OCRAIM Workshop</span>
+            <span class="author-block">ICRA 2025 OCRAIM Workshop Submission</span>
             <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
           </div>
 
@@ -127,7 +127,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="./static/files/ocraim_iral_morpheus.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -135,7 +135,7 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://arxiv.org/abs/2011.12948"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -143,10 +143,10 @@
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                <a href="./static/files/ocraim_iral_morpheus.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <!-- <i class="fab fa-youtube"></i> -->
@@ -183,7 +183,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Our novel quadrotor offers near-omnidirectional control over position and orientation for improved inspection capabilities
+        Our novel quadrotor offers omnidirectional control over position and orientation for improved inspection capabilities
       </h2>
     </div>
   </div>
@@ -238,12 +238,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-In this work, we design a novel quadrotor morphology (see the CAD model below) with rotor thrust-vectoring capabilities. 
-Accompanying this design, we present a full-stack autonomy method for controlling arbitrary thrust-vectored UAVs. This level of control enables
-our quadrotor to achieve near-omnidirectionality, a significant departure from traditional fixed-body designs. The morphable structure enhances the quadrotor’s adaptability,
-allowing it to maintain stable flight and precise control from arbitrary orientations even in the presence of external disturbances or partial
-system failures. This robustness is particularly crucial for applications in unpredictable and challenging environments (such as in outdoor inspection applications),
-where maintaining stability and control can be of paramount importance. 
+            Omnidirectional aerial vehicles (OMAVs) have opened up a wide range of possibilities for inspection, navigation, and manipulation applications using drones. In this paper, 
+            we introduce MorphEUS, a morphable co-axial quadrotor that can control position and orientation independently with high efficiency. MorphEUS uses a paired servo motor mechanism 
+            for each rotor arm, capable of pointing the vectored-thrust in any arbitrary direction. As compared to the state-of-the-art OMAVs, we achieve higher and more uniform force/torque 
+            reachability with a smaller footprint and minimum thrust cancellations. The overactuated nature of the system also results in resiliency to rotor or servo-motor failures. 
+            The capabilities of this quadrotor are particularly well-suited for contact-based infrastructure inspection and close-proximity imaging of complex geometries. 
+            In the accompanying control pipeline, we present theoretical results for full controllability, almost-everywhere exponential stability, and thrust-energy optimality. 
+            We evaluate our design and controller using high-fidelity simulations showcasing the trajectory-tracking capabilities of the vehicle during various tasks.
           </p>
 
         </div>
@@ -307,8 +308,21 @@ where maintaining stability and control can be of paramount importance.
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              Method here maybe? 
+                We present a novel variable-tilt co-axial quadrotor and a control pipeline that achieves a significantly higher level of maneuverability, dexterity, and efficiency. 
+                This system builds on prior work by improving omnidirectional flight capabilities while avoiding inefficient thrust cancellations. To realize this, each of the rotor pairs can be independently oriented using a pair of servo motors. 
+                This allows for full 6-DoF control of position and orientation. 
+                In the <a href="./static/files/ocraim_iral_morpheus.pdf" style="text-decoration: none;">paper</a>, we prove that the proposed controller is exponentially stable <i>almost</i> everywhere and energy-optimal in terms of control allocation.
             </p>
+
+            <figure class="image">
+                <img src="./static/images/pipeline-1.png" alt="Drone Fabrication", style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="is-italic has-text-centered", style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+                    Autonomous pipeline for the proposed variable-tilt morphable quadrotor.
+                </figcaption>
+            </figure>
+
+
+
           </div>
 
         </div>
@@ -323,17 +337,61 @@ where maintaining stability and control can be of paramount importance.
             <h2 class="title is-3">Real World Testing</h2>
     
             <div class="content has-text-justified">
-            <p>
-                Here we can show some of the work that we've been doing to build this in the real world... (maybe saying that we have something working in PX4 SITL?)
-            </p>
+                <p>
+                    In future work, we plan to apply these algorithms in real-world experiments. Progress has already been made in this direction, including:
+                </p>
+                <ol style="padding-left: 1.2em; line-height: 1.6;">
+                    <li>
+                        <p><strong>Extending the algorithms to the <a href="https://docs.px4.io/main/en/simulation/" style="text-decoration: none;">PX4 software-in-the-loop</a> flight stack</strong></p>
+                        <!-- <figure class="image">
+                            <img src="./static/images/px4_simulation.jpg" alt="PX4 Software-in-the-loop", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                                Simulation of the quadrotor using the PX4 SITL flight stack.
+                            </figcaption>
+                        </figure> -->
+                    </li>
+            
+                    <li>
+                        <p><strong>Fabricating the drone</strong></p>
+                        <figure class="image">
+                            <img src="./static/images/annotatedreallife.png" alt="Drone Fabrication", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                                Prototype of morphable quadrotor: <strong>1.</strong> Dynamixel Servos, <strong>2.</strong> NVIDIA Jetson Orin Nano, <strong>3.</strong> Pixhawk 6x Flight Computer, <strong>4.</strong> Intel RealSense Camera, <strong>5.</strong> Coaxial Propellor Motors, <strong>6.</strong> ESC + PDB Stack
+                            </figcaption>
+                        </figure>
+                    </li>
+            
+                    <li>
+                        <p><strong>Conducting preliminary flight tests</strong></p>
+                        <figure class="image">
+                            <img src="./static/images/prelim_flight.jpg" alt="Preliminary Flight Test", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                                Preliminary, tethered flight test of the MorphEUS quadrotor using PX4 flight controller and VIO localization.
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ol>
             </div>
-        </div>
+
+                <!-- <div class="columns is-centered">
+                    <div class="column is-half has-text-centered">
+                        <figure class="image">
+                        <img src="./static/images/prelim_flight.jpg" alt="CAD Model of the Quadrotor">
+                        <figcaption class="is-italic">
+                            Preliminary, tethered flight test of the MorphEUS quadrotor using PX4 flight controller and VIO localization.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div> -->
+            </div>
+
         </div>
         <!--/ Concurrent Work. -->
 
 
     <!-- Concurrent Work. -->
-    <div class="columns is-centered">
+
+    <!-- <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
 
@@ -343,7 +401,7 @@ where maintaining stability and control can be of paramount importance.
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Concurrent Work. -->
 
   </div>
@@ -353,11 +411,11 @@ where maintaining stability and control can be of paramount importance.
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{something,
-  author    = {Fill this in},
+    <pre><code>@article{TODO,
+  author    = {TODO},
   title     = {TODO TODO},
-  journal   = {ICRA something? },
-  year      = {todotodo},
+  journal   = {TODO},
+  year      = {TODO},
 }</code></pre>
   </div>
 </section>
