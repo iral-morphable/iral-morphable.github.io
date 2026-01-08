@@ -36,6 +36,11 @@ $(document).ready(function() {
 			infinite: true,
 			autoplay: false,
 			autoplaySpeed: 3000,
+			breakpoints: [
+				{ changePoint: 480, slidesToShow: 1, slidesToScroll: 1 },
+				{ changePoint: 768, slidesToShow: 2, slidesToScroll: 1 },
+				{ changePoint: 1024, slidesToShow: 3, slidesToScroll: 1 }
+			]
     }
 
 		// Initialize all div with carousel class
@@ -74,5 +79,91 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
+
+    // Sequential teaser video playback with manual navigation
+    var teaserVideos = [
+        './static/videos/360_pitch_semantic_seg.mp4',
+        './static/videos/hand_tracking.mp4',
+        './static/videos/obstacle_course.mp4',
+        './static/videos/perching_on_whiteboard.mp4'
+    ];
+    var currentVideoIndex = 0;
+    var teaserVideo = document.getElementById('teaser');
+    var autoPlayEnabled = true;
+    var userInteractionTimer = null;
+
+    function playTeaserVideo(index) {
+        currentVideoIndex = index;
+        teaserVideo.src = teaserVideos[currentVideoIndex];
+        teaserVideo.play();
+
+        // Update indicator dots
+        document.querySelectorAll('.teaser-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentVideoIndex);
+        });
+    }
+
+    function nextTeaserVideo() {
+        playTeaserVideo((currentVideoIndex + 1) % teaserVideos.length);
+    }
+
+    function prevTeaserVideo() {
+        playTeaserVideo((currentVideoIndex - 1 + teaserVideos.length) % teaserVideos.length);
+    }
+
+    function pauseAutoAdvance() {
+        autoPlayEnabled = false;
+        clearTimeout(userInteractionTimer);
+
+        // Resume auto-play after 10 seconds of inactivity
+        userInteractionTimer = setTimeout(() => {
+            autoPlayEnabled = true;
+        }, 10000);
+    }
+
+    if (teaserVideo) {
+        // Auto-advance when video ends
+        teaserVideo.addEventListener('ended', function() {
+            if (autoPlayEnabled) {
+                nextTeaserVideo();
+            } else {
+                teaserVideo.play(); // Loop current video if auto-advance paused
+            }
+        });
+
+        // Navigation button handlers
+        document.querySelector('.teaser-nav-prev')?.addEventListener('click', () => {
+            pauseAutoAdvance();
+            prevTeaserVideo();
+        });
+
+        document.querySelector('.teaser-nav-next')?.addEventListener('click', () => {
+            pauseAutoAdvance();
+            nextTeaserVideo();
+        });
+
+        // Indicator dot handlers
+        document.querySelectorAll('.teaser-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                pauseAutoAdvance();
+                playTeaserVideo(index);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.closest('.teaser-video-wrapper') ||
+                document.activeElement.classList.contains('teaser-dot') ||
+                document.activeElement.classList.contains('teaser-nav')) {
+                if (e.key === 'ArrowLeft') {
+                    pauseAutoAdvance();
+                    prevTeaserVideo();
+                } else if (e.key === 'ArrowRight') {
+                    pauseAutoAdvance();
+                    nextTeaserVideo();
+                }
+            }
+        });
+    }
 
 })

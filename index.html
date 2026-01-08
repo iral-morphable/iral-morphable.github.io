@@ -177,10 +177,32 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/inspection_pipe.mp4"
-                type="video/mp4">
-      </video>
+      <div class="teaser-video-wrapper">
+        <video id="teaser" autoplay muted playsinline>
+          <source src="./static/videos/360_pitch_semantic_seg.mp4"
+                  type="video/mp4">
+        </video>
+
+        <button class="teaser-nav teaser-nav-prev" aria-label="Previous video">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <button class="teaser-nav teaser-nav-next" aria-label="Next video">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="teaser-indicators">
+          <button class="teaser-dot active" data-index="0" aria-label="Video 1"></button>
+          <button class="teaser-dot" data-index="1" aria-label="Video 2"></button>
+          <button class="teaser-dot" data-index="2" aria-label="Video 3"></button>
+          <button class="teaser-dot" data-index="3" aria-label="Video 4"></button>
+        </div>
+      </div>
+
       <h2 class="subtitle has-text-centered">
         Our novel quadrotor offers omnidirectional control over position and orientation for improved inspection capabilities
       </h2>
