@@ -1718,12 +1718,18 @@ section.section .title {
 @media (max-width: 768px) {
   .teaser-video-wrapper {
     max-width: 100%;
-    height: 400px;
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .teaser-video-wrapper video {
+    object-fit: contain;
   }
 }
 
 @media (max-width: 480px) {
   .teaser-video-wrapper {
-    height: 300px;
+    height: 55vh;
+    min-height: 350px;
   }
 }
