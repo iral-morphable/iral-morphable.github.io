@@ -1137,7 +1137,11 @@ section.hero.is-light.is-small {
 
 @media (max-width: 768px) {
   .hero-content-float {
-    padding: 2rem 1rem 1rem !important;
+    padding-top: 10vh !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow-y: auto !important;
   }
 }
 
