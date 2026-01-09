@@ -162,7 +162,7 @@ section.section figcaption,
 .teaser-video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 90%;
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
@@ -671,35 +671,35 @@ video[controls] {
 
 /* Section spacing - Meta-inspired generous whitespace */
 section.hero {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 section.hero.teaser {
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
 }
 
 section.hero.is-light.is-small {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   background: linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
 }
 
 @media (min-width: 769px) {
   section.hero {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
   }
 
   section.hero.teaser {
-    padding-top: 3rem;
-    padding-bottom: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
   }
 
   section.hero.is-light.is-small {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 }
 
@@ -969,6 +969,18 @@ section.hero.is-light.is-small {
   position: relative;
   overflow: hidden;
   background: var(--color-deep-space);
+  /* Reduce height on large screens */
+  min-height: auto !important;
+}
+
+.hero-video-bg.is-fullheight {
+  min-height: 85vh !important;
+}
+
+@media (min-width: 2000px) {
+  .hero-video-bg.is-fullheight {
+    min-height: 70vh !important;
+  }
 }
 
 .hero-video-background {
@@ -1014,8 +1026,13 @@ section.hero.is-light.is-small {
 .hero-content-float {
   position: relative;
   z-index: 10;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* Override Bulma's default hero-body padding */
+  padding: 2rem 1.5rem !important;
+  /* Adjust vertical alignment */
+  align-items: flex-start !important;
+  padding-top: 3rem !important;
 }
 
 .hero-content-card {
@@ -1543,5 +1560,32 @@ section.section .title {
 
   .scroll-indicator {
     animation: none;
+  }
+}
+
+/* ============================================
+   LARGER VIDEO CONTAINERS
+   ============================================ */
+
+/* Make containers wider for better video display */
+.container.is-max-desktop {
+  max-width: 1400px !important;
+}
+
+/* Make results carousel container even wider */
+.results-section .container {
+  max-width: 95% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .container.is-max-desktop {
+    max-width: 90% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .teaser-video-wrapper {
+    max-width: 100%;
   }
 }
