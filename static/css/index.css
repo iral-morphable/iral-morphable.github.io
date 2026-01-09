@@ -1643,6 +1643,21 @@ section.section .title {
 }
 
 /* ============================================
+   MORPHEUS HARDWARE IMAGE MOBILE OPTIMIZATION
+   ============================================ */
+
+/* Make morpheus_hardware image fill max height on mobile while fitting width */
+@media (max-width: 768px) {
+  figure.image img[src*="morphEUS_hardware"] {
+    max-width: 100vw !important;
+    max-height: 80vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+}
+
+/* ============================================
    ACCESSIBILITY - REDUCED MOTION SUPPORT
    ============================================ */
 
