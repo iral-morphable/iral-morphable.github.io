@@ -177,6 +177,24 @@ figcaption {
   display: block;
   object-fit: contain;
   background: #000;
+  cursor: pointer;
+}
+
+/* Ensure teaser video controls are visible */
+.teaser-video-wrapper video::-webkit-media-controls-panel {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+.teaser-video-wrapper video::-webkit-media-controls {
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+/* Show controls on hover for better visibility */
+.teaser-video-wrapper:hover video::-webkit-media-controls-panel {
+  opacity: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
 }
 
 /* Fallback for browsers without aspect-ratio support */
@@ -500,6 +518,44 @@ figcaption {
   aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
+}
+
+/* Ensure video controls are visible and accessible */
+.results-carousel video {
+  cursor: pointer;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.results-carousel video::-webkit-media-controls-panel {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+.results-carousel video::-webkit-media-controls {
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+/* Show controls on hover for better visibility */
+.results-carousel .item:hover video::-webkit-media-controls-panel {
+  opacity: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+}
+
+/* Ensure hover overlay doesn't block video controls */
+.video-hover-overlay {
+  pointer-events: none;
+}
+
+/* Make sure clicking on video works properly */
+.results-carousel video::cue {
+  background: transparent;
+}
+
+/* All videos should show controls */
+video[controls] {
+  -webkit-appearance: media-controls;
+  appearance: media-controls;
 }
 
 /* Fallback for browsers without aspect-ratio support */
