@@ -163,6 +163,7 @@ section.section figcaption,
   position: relative;
   width: 100%;
   max-width: 98%;
+  height: 600px;
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
@@ -183,10 +184,9 @@ section.section figcaption,
 
 .teaser-video-wrapper video {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   background: #000;
   cursor: pointer;
 }
@@ -295,8 +295,8 @@ section.section figcaption,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
   border: none;
@@ -354,8 +354,8 @@ section.section figcaption,
 
 @media (max-width: 768px) {
   .teaser-nav {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 
   .teaser-nav-prev {
@@ -370,21 +370,21 @@ section.section figcaption,
 /* Indicator Dots - Meta-inspired polished design */
 .teaser-indicators {
   position: absolute;
-  bottom: 24px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 12px;
+  gap: 8px;
   z-index: 10;
-  padding: 8px 16px;
+  padding: 6px 12px;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(12px);
-  border-radius: 24px;
+  border-radius: 20px;
 }
 
 .teaser-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
   border: none;
@@ -400,25 +400,26 @@ section.section figcaption,
 
 .teaser-dot.active {
   background: rgba(255, 255, 255, 1);
-  width: 24px;
-  border-radius: 12px;
+  width: 18px;
+  border-radius: 9px;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
   .teaser-indicators {
-    bottom: 12px;
-    gap: 8px;
+    bottom: 10px;
+    gap: 6px;
+    padding: 4px 10px;
   }
 
   .teaser-dot {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
   }
 
   .teaser-dot.active {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 5px;
   }
 }
 
@@ -703,8 +704,8 @@ section.section figcaption,
 /* Override Bulma carousel navigation - Meta-inspired premium design */
 .slider-navigation-previous,
 .slider-navigation-next {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   background: rgba(255, 255, 255, 0.98);
   border: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
@@ -753,8 +754,8 @@ section.section figcaption,
 
   .slider-navigation-previous,
   .slider-navigation-next {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -1123,7 +1124,7 @@ section.hero.is-light.is-small {
   position: relative;
   z-index: 10;
   /* Override Bulma's default hero-body padding */
-  padding-top: 20vh !important;
+  padding-top: 10vh !important;
   padding-bottom: 1rem !important;
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
@@ -1137,7 +1138,7 @@ section.hero.is-light.is-small {
 
 @media (max-width: 768px) {
   .hero-content-float {
-    padding-top: 10vh !important;
+    padding-top: 5vh !important;
     padding-bottom: 2rem !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
@@ -1548,7 +1549,7 @@ section.hero.is-light.is-small {
 
 .video-info h4 {
   color: white;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   transform: translateY(20px);
@@ -1718,5 +1719,12 @@ section.section .title {
 @media (max-width: 768px) {
   .teaser-video-wrapper {
     max-width: 100%;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teaser-video-wrapper {
+    height: 300px;
   }
 }
