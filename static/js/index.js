@@ -380,6 +380,12 @@ $(document).ready(function() {
         './static/videos/obstacle_course.mp4',
         './static/videos/perching_on_whiteboard.mp4'
     ];
+    var teaserVideoTitles = [
+        'Pipe Inspection with 360° Pitch',
+        'Hand Tracking',
+        'Obstacle Course Navigation',
+        'Perching on Whiteboard'
+    ];
     var currentVideoIndex = 0;
     var teaserVideo = document.getElementById('teaser');
     var autoPlayEnabled = true;
@@ -389,6 +395,15 @@ $(document).ready(function() {
         currentVideoIndex = index;
         teaserVideo.src = teaserVideos[currentVideoIndex];
         teaserVideo.play();
+
+        // Update video title (get element each time to ensure it's found)
+        var teaserVideoTitle = document.getElementById('teaser-video-title');
+        if (teaserVideoTitle) {
+            teaserVideoTitle.textContent = teaserVideoTitles[currentVideoIndex];
+            console.log('Updated title to:', teaserVideoTitles[currentVideoIndex]);
+        } else {
+            console.error('teaser-video-title element not found');
+        }
 
         // Update indicator dots
         document.querySelectorAll('.teaser-dot').forEach((dot, i) => {
