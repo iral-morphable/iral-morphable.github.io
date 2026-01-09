@@ -1062,17 +1062,20 @@ section.hero.is-light.is-small {
   position: relative;
   overflow: hidden;
   background: var(--color-deep-space);
-  /* Reduce height on large screens */
+  /* Reduce height to fit on screen */
   min-height: auto !important;
 }
 
 .hero-video-bg.is-fullheight {
-  min-height: 85vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  height: 100vh !important;
 }
 
 @media (min-width: 2000px) {
   .hero-video-bg.is-fullheight {
-    min-height: 70vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
   }
 }
 
@@ -1119,13 +1122,20 @@ section.hero.is-light.is-small {
 .hero-content-float {
   position: relative;
   z-index: 10;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   /* Override Bulma's default hero-body padding */
-  padding: 2rem 1.5rem !important;
-  /* Adjust vertical alignment */
+  padding: 3rem 1.5rem 1rem !important;
+  display: flex !important;
   align-items: flex-start !important;
-  padding-top: 3rem !important;
+  justify-content: center !important;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-content-float {
+    padding: 2rem 1rem 1rem !important;
+  }
 }
 
 .hero-content-card {
@@ -1133,13 +1143,19 @@ section.hero.is-light.is-small {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(74, 158, 255, 0.1);
   transition: all 0.5s var(--easing-smooth);
+}
+
+@media (max-width: 768px) {
+  .hero-content-card {
+    padding: 1.5rem 1.5rem;
+  }
 }
 
 .hero-content-card:hover {
