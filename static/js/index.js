@@ -493,6 +493,74 @@ $(document).ready(function() {
     // Initialize video hover effects
     const videoHover = new VideoHoverController();
 
+    // ============================================
+    // CUSTOM VIDEO PLAY/PAUSE CONTROLS
+    // ============================================
+
+    // Function to setup play/pause button for a video container
+    function setupPlayPauseButton(container) {
+        const video = container.querySelector('video');
+        const playButton = container.querySelector('.custom-play-button');
+
+        if (!video || !playButton) return;
+
+        const playIcon = playButton.querySelector('.play-icon');
+        const pauseIcon = playButton.querySelector('.pause-icon');
+
+        function updateButton() {
+            if (video.paused) {
+                playButton.classList.add('paused');
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            } else {
+                playButton.classList.remove('paused');
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            }
+        }
+
+        // Toggle play/pause when button is clicked
+        playButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            updateButton();
+        });
+
+        // Toggle play/pause when clicking on the video itself
+        video.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            updateButton();
+        });
+
+        // Update button state when video play/pause state changes
+        video.addEventListener('play', updateButton);
+        video.addEventListener('pause', updateButton);
+
+        // Initial button state
+        updateButton();
+    }
+
+    // Setup teaser video play/pause
+    const teaserWrapper = document.querySelector('.teaser-video-wrapper');
+    if (teaserWrapper) {
+        setupPlayPauseButton(teaserWrapper);
+    }
+
+    // Setup carousel videos play/pause
+    const carouselItems = document.querySelectorAll('.results-carousel .item.video-card-enhanced');
+    carouselItems.forEach(item => {
+        setupPlayPauseButton(item);
+    });
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
