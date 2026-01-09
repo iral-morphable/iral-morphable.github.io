@@ -530,15 +530,39 @@ $(document).ready(function() {
             updateButton();
         });
 
-        // Toggle play/pause when clicking on the video itself
+        // Toggle fullscreen when clicking on the video itself
         video.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (video.paused) {
-                video.play();
+
+            // Check if currently in fullscreen
+            const isFullscreen = document.fullscreenElement ||
+                                document.webkitFullscreenElement ||
+                                document.mozFullScreenElement ||
+                                document.msFullscreenElement;
+
+            if (isFullscreen) {
+                // Exit fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { // Safari
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) { // Firefox
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) { // IE/Edge
+                    document.msExitFullscreen();
+                }
             } else {
-                video.pause();
+                // Enter fullscreen
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { // Safari
+                    video.webkitRequestFullscreen();
+                } else if (video.mozRequestFullScreen) { // Firefox
+                    video.mozRequestFullScreen();
+                } else if (video.msRequestFullscreen) { // IE/Edge
+                    video.msRequestFullscreen();
+                }
             }
-            updateButton();
         });
 
         // Update button state when video play/pause state changes
