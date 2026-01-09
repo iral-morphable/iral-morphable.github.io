@@ -162,7 +162,7 @@ section.section figcaption,
 .teaser-video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 90%;
+  max-width: 98%;
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
@@ -1123,7 +1123,10 @@ section.hero.is-light.is-small {
   position: relative;
   z-index: 10;
   /* Override Bulma's default hero-body padding */
-  padding: 3rem 1.5rem 1rem !important;
+  padding-top: 20vh !important;
+  padding-bottom: 1rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
   display: flex !important;
   align-items: flex-start !important;
   justify-content: center !important;
