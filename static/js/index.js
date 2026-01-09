@@ -561,6 +561,35 @@ $(document).ready(function() {
         setupPlayPauseButton(item);
     });
 
+    // ============================================
+    // VIDEO AUTOPLAY ON SCROLL (INTERSECTION OBSERVER)
+    // ============================================
+
+    // Pause carousel videos that are not in viewport
+    const carouselVideoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target.querySelector('video');
+            if (!video) return;
+
+            if (entry.isIntersecting) {
+                // Video is in viewport - play it
+                video.play().catch(err => {
+                    console.log('Autoplay prevented:', err);
+                });
+            } else {
+                // Video is out of viewport - pause it
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Video needs to be at least 50% visible
+    });
+
+    // Observe all carousel video items
+    carouselItems.forEach(item => {
+        carouselVideoObserver.observe(item);
+    });
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
