@@ -183,6 +183,9 @@ section.section figcaption,
   background: #000;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .teaser-video-wrapper:hover {
@@ -1719,10 +1722,11 @@ section.section .title {
   .teaser-video-wrapper {
     max-width: 100%;
     height: auto;
-    max-height: 70vh;
+    background: transparent;
   }
 
   .teaser-video-wrapper video {
+    position: relative;
     object-fit: contain;
     width: 100%;
     height: auto;
@@ -1731,10 +1735,6 @@ section.section .title {
 }
 
 @media (max-width: 480px) {
-  .teaser-video-wrapper {
-    max-height: 65vh;
-  }
-
   .teaser-video-wrapper video {
     max-height: 65vh;
   }
