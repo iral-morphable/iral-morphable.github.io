@@ -222,7 +222,7 @@
 
       <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="100">
         <div class="capability-icon"><i class="fas fa-rocket"></i></div>
-        <h3 class="capability-title">Omnidirectional Max Thrust Vectoring</h3>
+        <h3 class="capability-title">Max Thrust Vectoring</h3>
         <p class="capability-description">Paired servo motors enable arbitrary thrust vectoring in any direction</p>
       </div>
 
@@ -365,57 +365,6 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Omnidirectional aerial vehicles (OMAVs) have opened up a wide range of possibilities for inspection, navigation, and manipulation applications using drones. In this paper, 
-            we introduce MorphEUS, a morphable co-axial quadrotor that can control position and orientation independently with high efficiency. MorphEUS uses a paired servo motor mechanism 
-            for each rotor arm, capable of pointing the vectored-thrust in any arbitrary direction. As compared to the state-of-the-art OMAVs, we achieve higher and more uniform force/torque 
-            reachability with a smaller footprint and minimum thrust cancellations. The overactuated nature of the system also results in resiliency to rotor or servo-motor failures. 
-            The capabilities of this quadrotor are particularly well-suited for contact-based infrastructure inspection and close-proximity imaging of complex geometries. 
-            In the accompanying control pipeline, we present theoretical results for full controllability, almost-everywhere exponential stability, and thrust-energy optimality. 
-            We evaluate our design and controller using high-fidelity simulations showcasing the trajectory-tracking capabilities of the vehicle during various tasks.
-          </p>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-        <div class="column is-half has-text-centered">
-          <figure class="image">
-            <img src="./static/images/quad_with_labels.png" alt="CAD Model of the Quadrotor">
-            <figcaption class="is-italic">
-                Quadrotor CAD model with an additional 
-                <strong style="color: red;">primary joint</strong> and 
-                <strong style="color: rgb(53, 171, 255);">secondary joint</strong> per rotor
-              </figcaption>
-          </figure>
-        </div>
-    </div>
-
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
 
     <div class="columns is-centered">
 
@@ -464,78 +413,6 @@
     <!--/ Matting. -->
 
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-        <div class="column is-full-width">
-            <h2 class="title is-3">Real World Testing</h2>
-    
-            <div class="content has-text-justified">
-                <p>
-                    In future work, we plan to apply these algorithms in real-world experiments. Progress has already been made in this direction, including:
-                </p>
-                <ol style="padding-left: 1.2em; line-height: 1.6;">
-                    <li>
-                        <p><strong>Extending the algorithms to the <a href="https://docs.px4.io/main/en/simulation/" style="text-decoration: none;">PX4 software-in-the-loop</a> flight stack</strong></p>
-                        <!-- <figure class="image">
-                            <img src="./static/images/px4_simulation.jpg" alt="PX4 Software-in-the-loop", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
-                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
-                                Simulation of the quadrotor using the PX4 SITL flight stack.
-                            </figcaption>
-                        </figure> -->
-                    </li>
-            
-                    <li>
-                        <p><strong>Fabricating the drone</strong></p>
-                        <figure class="image">
-                            <img src="./static/images/annotatedreallife.png" alt="Drone Fabrication", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
-                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
-                                Prototype of morphable quadrotor: <strong>1.</strong> Dynamixel Servos, <strong>2.</strong> NVIDIA Jetson Orin Nano, <strong>3.</strong> Pixhawk 6x Flight Computer, <strong>4.</strong> Intel RealSense Camera, <strong>5.</strong> Coaxial Propellor Motors, <strong>6.</strong> ESC + PDB Stack
-                            </figcaption>
-                        </figure>
-                    </li>
-            
-                    <li>
-                        <p><strong>Conducting preliminary flight tests</strong></p>
-                        <figure class="image">
-                            <img src="./static/images/prelim_flight.jpg" alt="Preliminary Flight Test", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
-                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
-                                Preliminary, tethered flight test of the MorphEUS quadrotor using PX4 flight controller and VIO localization.
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ol>
-            </div>
-
-                <!-- <div class="columns is-centered">
-                    <div class="column is-half has-text-centered">
-                        <figure class="image">
-                        <img src="./static/images/prelim_flight.jpg" alt="CAD Model of the Quadrotor">
-                        <figcaption class="is-italic">
-                            Preliminary, tethered flight test of the MorphEUS quadrotor using PX4 flight controller and VIO localization.
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div> -->
-            </div>
-
-        </div>
-        <!--/ Concurrent Work. -->
-
-
-    <!-- Concurrent Work. -->
-
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            Can fill in some things here if we want. Maybe voliro or something? Other concurrent work? 
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
 
   </div>
 </section>
