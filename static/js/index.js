@@ -553,9 +553,15 @@ $(document).ready(function() {
                     document.msExitFullscreen();
                 }
             } else {
-                // Enter fullscreen - on mobile, we need to enter fullscreen on the video element
+                // Add controls for fullscreen
+                video.setAttribute('controls', 'controls');
+
+                // Ensure video is playing
+                const playPromise = video.play();
+
+                // Enter fullscreen
                 if (video.requestFullscreen) {
-                    video.requestFullscreen();
+                    video.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
                 } else if (video.webkitRequestFullscreen) { // Safari
                     video.webkitRequestFullscreen();
                 } else if (video.webkitEnterFullscreen) { // iOS Safari
@@ -567,6 +573,28 @@ $(document).ready(function() {
                 }
             }
         }
+
+        // Remove controls when exiting fullscreen
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                video.removeAttribute('controls');
+            }
+        });
+        document.addEventListener('webkitfullscreenchange', () => {
+            if (!document.webkitFullscreenElement) {
+                video.removeAttribute('controls');
+            }
+        });
+        document.addEventListener('mozfullscreenchange', () => {
+            if (!document.mozFullScreenElement) {
+                video.removeAttribute('controls');
+            }
+        });
+        document.addEventListener('msfullscreenchange', () => {
+            if (!document.msFullscreenElement) {
+                video.removeAttribute('controls');
+            }
+        });
 
         // Toggle fullscreen when clicking on the video itself
         video.addEventListener('click', toggleFullscreen);
