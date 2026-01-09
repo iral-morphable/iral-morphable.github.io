@@ -504,4 +504,29 @@ $(document).ready(function() {
         console.log(`Page interactive in ${Math.round(loadTime)}ms`);
     }
 
+    // Scroll to next section when clicking scroll indicator
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    if (scrollIndicator) {
+        // Find the next section after the hero
+        const heroSection = document.getElementById('hero-section');
+        const nextSection = heroSection ? heroSection.nextElementSibling : null;
+
+        const scrollToNext = () => {
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+
+        // Click handler
+        scrollIndicator.addEventListener('click', scrollToNext);
+
+        // Keyboard accessibility (Enter or Space key)
+        scrollIndicator.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                scrollToNext();
+            }
+        });
+    }
+
 })

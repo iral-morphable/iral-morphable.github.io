@@ -70,7 +70,7 @@ h2.title.is-3 {
 .content {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #b8bbbf;
+  color: #e4e6eb;
 }
 
 .content.has-text-justified {
@@ -101,8 +101,14 @@ figure.image:hover img {
 figcaption {
   margin-top: 1rem;
   font-size: 0.95rem;
-  color: #8a8d91;
+  color: #b8bbbf;
   line-height: 1.5;
+}
+
+/* Make figcaptions in dark sections more visible */
+section.section figcaption,
+.results-section figcaption {
+  color: #e4e6eb;
 }
 
 /* Modern link styling - Dark theme */
@@ -1054,12 +1060,38 @@ section.hero.is-light.is-small {
 
 .scroll-indicator {
   margin-top: 3rem;
-  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   opacity: 0.7;
   animation: scrollBounce 2s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.3s var(--easing-smooth);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  background: rgba(74, 158, 255, 0.1);
+}
+
+.scroll-indicator:active {
+  transform: scale(0.95);
+}
+
+.scroll-indicator:focus {
+  outline: 2px solid var(--color-royal-azure);
+  outline-offset: 4px;
+}
+
+.scroll-indicator:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .scroll-text {
@@ -1433,6 +1465,33 @@ section.hero.is-light.is-small {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+/* ============================================
+   TEXT VISIBILITY FIXES
+   ============================================ */
+
+/* Make "Experimental Results" title more visible */
+.results-section .section-title {
+  color: #f0f2f5 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Make Real World Testing section text more visible */
+section.section .content p,
+section.section .content li,
+section.section .content strong {
+  color: #e4e6eb !important;
+}
+
+/* Ensure list items are visible */
+section.section ol li p {
+  color: #e4e6eb !important;
+}
+
+/* Make titles in content sections more visible */
+section.section .title {
+  color: #f0f2f5 !important;
 }
 
 /* ============================================
