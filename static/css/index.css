@@ -358,12 +358,31 @@ section.section figcaption,
 
 @media (max-width: 768px) {
   .teaser-video-container {
-    gap: 0.5rem;
+    gap: 0;
+    position: relative;
   }
 
   .teaser-nav {
-    width: 36px;
-    height: 36px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 20;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+  }
+
+  .teaser-nav-prev {
+    left: 8px;
+  }
+
+  .teaser-nav-next {
+    right: 8px;
+  }
+
+  .teaser-nav svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
