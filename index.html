@@ -82,13 +82,25 @@
   </div>
 </nav> -->
 
-<section class="hero">
-  <div class="hero-body">
+<section class="hero is-fullheight hero-video-bg" id="hero-section">
+  <!-- Video Background -->
+  <video class="hero-video-background" autoplay muted loop playsinline>
+    <source src="./static/videos/360_pitch_semantic_seg.mp4" type="video/mp4">
+  </video>
+
+  <!-- Dark overlay for readability -->
+  <div class="hero-video-overlay"></div>
+
+  <!-- 3D Particle Canvas -->
+  <canvas id="particle-canvas" class="hero-particle-canvas"></canvas>
+
+  <!-- Floating Content -->
+  <div class="hero-body hero-content-float">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><strong>Morph-EUS:</strong> <strong>Morph</strong>able Omnidir<strong>E</strong>ctional <strong>U</strong>nmanned <strong>S</strong>ystem</h1>
-          <div class="is-size-5 publication-authors">
+        <div class="column has-text-centered hero-content-card">
+          <h1 class="title is-1 publication-title animate-fade-up"><strong>Morph-EUS:</strong> <strong>Morph</strong>able Omnidir<strong>E</strong>ctional <strong>U</strong>nmanned <strong>S</strong>ystem</h1>
+          <div class="is-size-5 publication-authors animate-stagger">
             <span class="author-block">
               <a href="https://www.linkedin.com/in/ivan-bao-575340191/">Ivan Bao<sup>*</sup></a>,</span>
             <span class="author-block">
@@ -114,17 +126,16 @@
             </span>
           </div>
 
-          <div class="is-size-5 publication-authors">
+          <div class="is-size-5 publication-authors animate-stagger">
             <span class="author-block">University of Michigan</span>,
             <span class="author-block"><sup>*</sup>Ordered Alphabetically</span>
           </div>
-          <div class="is-size-5 publication-authors">
+          <div class="is-size-5 publication-authors animate-stagger">
             <span class="author-block">ICRA 2025 OCRAIM Workshop</span>
-            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
           </div>
 
           <div class="column has-text-centered">
-            <div class="publication-links">
+            <div class="publication-links animate-fade-up animate-delay-2">
               <!-- PDF Link. -->
               <span class="link-block">
                 <a href="./static/files/ocraim_iral_morpheus.pdf"
@@ -144,29 +155,13 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="./static/files/ocraim_iral_morpheus.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Supplimentary Material</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span> -->
-              <!-- Dataset Link. -->
             </div>
+          </div>
 
+          <!-- Scroll indicator -->
+          <div class="scroll-indicator">
+            <span class="scroll-text">Scroll to explore</span>
+            <div class="scroll-arrow"></div>
           </div>
         </div>
       </div>
@@ -174,10 +169,11 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<section class="hero teaser parallax-section" data-parallax-speed="0.5">
+  <div class="parallax-bg"></div>
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <div class="teaser-video-wrapper">
+      <div class="teaser-video-wrapper animate-on-scroll" data-animation="scale-up">
         <video id="teaser" autoplay muted playsinline>
           <source src="./static/videos/360_pitch_semantic_seg.mp4"
                   type="video/mp4">
@@ -203,66 +199,130 @@
         </div>
       </div>
 
-      <h2 class="subtitle has-text-centered">
+      <h2 class="subtitle has-text-centered animate-on-scroll" data-animation="fade-up">
         Our novel quadrotor offers omnidirectional control over position and orientation for improved inspection capabilities
       </h2>
     </div>
   </div>
 </section>
 
+<!-- Capabilities Grid Section -->
+<section class="section capabilities-section" id="capabilities">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered section-title animate-on-scroll" data-animation="fade-up">
+      Key Capabilities
+    </h2>
 
-<section class="hero is-light is-small">
+    <div class="capabilities-grid">
+      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="0">
+        <div class="capability-icon"><i class="fas fa-arrows-alt"></i></div>
+        <h3 class="capability-title">Omnidirectional Control</h3>
+        <p class="capability-description">Full 6-DoF control with independent position and orientation</p>
+      </div>
+
+      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+        <div class="capability-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3 class="capability-title">Variable Tilt Mechanism</h3>
+        <p class="capability-description">Paired servo motors enable arbitrary thrust vectoring</p>
+      </div>
+
+      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="200">
+        <div class="capability-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3 class="capability-title">Fault Tolerant</h3>
+        <p class="capability-description">Overactuated design provides resilience to component failures</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small results-section parallax-section" data-parallax-speed="0.3">
+  <div class="parallax-bg"></div>
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
+      <h2 class="title is-3 has-text-centered section-title animate-on-scroll" data-animation="fade-up">
+        Experimental Results
+      </h2>
+      <div id="results-carousel" class="carousel results-carousel animate-on-scroll" data-animation="fade-up">
         <!-- Experiments -->
-        <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/new_slant_formatted.mp4"
-                      type="video/mp4">
-            </video>
-        </div>
-        <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/new_watertower_formatted.mp4"
-                      type="video/mp4">
-            </video>
-        </div>
-        <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/new_conduit.mp4"
-                      type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="item item-steve">
+        <div class="item item-steve video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Slanted Surface Navigation</h4>
+            </div>
+          </div>
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/angle_setpoints.mp4"
-                    type="video/mp4">
+            <source src="./static/videos/new_slant_formatted.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/rotate_z_small.mov"
-                    type="video/mp4">
+        <div class="item item-watertower video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Water Tower Inspection</h4>
+            </div>
+          </div>
+          <video poster="" id="watertower" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/new_watertower_formatted.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/corkscrew_with_axes.mp4"
-                    type="video/mp4">
+        <div class="item item-conduit video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Conduit Maneuvering</h4>
+            </div>
+          </div>
+          <video poster="" id="conduit" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/new_conduit.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/rand_orien_and_trans.mp4"
-                    type="video/mp4">
+
+        <div class="item item-angles video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Angle Control Precision</h4>
+            </div>
+          </div>
+          <video poster="" id="angles" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/angle_setpoints.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/trans_and_rot_z.mp4"
-                    type="video/mp4">
+        <div class="item item-rotate video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Z-Axis Rotation</h4>
+            </div>
+          </div>
+          <video poster="" id="rotate" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/rotate_z_small.mov" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-corkscrew video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Corkscrew Trajectory</h4>
+            </div>
+          </div>
+          <video poster="" id="corkscrew" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/corkscrew_with_axes.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-random video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Random Orientation & Translation</h4>
+            </div>
+          </div>
+          <video poster="" id="random" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/rand_orien_and_trans.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-trans video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4>Translation with Z Rotation</h4>
+            </div>
+          </div>
+          <video poster="" id="trans" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/trans_and_rot_z.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -270,6 +330,32 @@
   </div>
 </section>
 
+<!-- Animated Statistics Section -->
+<section class="section stats-section" id="statistics">
+  <div class="container is-max-desktop">
+    <div class="stats-grid">
+      <div class="stat-card animate-on-scroll" data-animation="fade-up" data-delay="0">
+        <div class="stat-number" data-target="6">0</div>
+        <div class="stat-label">Degrees of Freedom</div>
+      </div>
+
+      <div class="stat-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+        <div class="stat-number" data-target="360">0</div>
+        <div class="stat-label">Rotation (degrees)</div>
+      </div>
+
+      <div class="stat-card animate-on-scroll" data-animation="fade-up" data-delay="200">
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Servo Motors</div>
+      </div>
+
+      <div class="stat-card animate-on-scroll" data-animation="fade-up" data-delay="300">
+        <div class="stat-number" data-target="4">0</div>
+        <div class="stat-label">Co-axial Rotors</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
