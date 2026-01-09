@@ -177,44 +177,46 @@
   <div class="parallax-bg"></div>
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <div class="teaser-video-wrapper animate-on-scroll video-card-enhanced" data-animation="scale-up">
-        <div class="video-hover-overlay">
-          <div class="video-info">
-            <h4 id="teaser-video-title">Pipe Inspection with 360° Pitch</h4>
-          </div>
-        </div>
-        <video id="teaser" autoplay muted loop playsinline>
-          <source src="./static/videos/360_pitch_semantic_seg.mp4"
-                  type="video/mp4">
-        </video>
-
-        <button class="custom-play-button paused" aria-label="Play/Pause video">
-          <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          <svg class="pause-icon" style="display: none;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-          </svg>
-        </button>
-
+      <div class="teaser-video-container animate-on-scroll" data-animation="scale-up">
         <button class="teaser-nav teaser-nav-prev" aria-label="Previous video">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
         </button>
 
+        <div class="teaser-video-wrapper video-card-enhanced">
+          <div class="video-hover-overlay">
+            <div class="video-info">
+              <h4 id="teaser-video-title">Pipe Inspection with 360° Pitch</h4>
+            </div>
+          </div>
+          <video id="teaser" autoplay muted loop playsinline>
+            <source src="./static/videos/360_pitch_semantic_seg.mp4"
+                    type="video/mp4">
+          </video>
+
+          <button class="custom-play-button paused" aria-label="Play/Pause video">
+            <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="pause-icon" style="display: none;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+          </button>
+        </div>
+
         <button class="teaser-nav teaser-nav-next" aria-label="Next video">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
+      </div>
 
-        <div class="teaser-indicators">
-          <button class="teaser-dot active" data-index="0" aria-label="Video 1"></button>
-          <button class="teaser-dot" data-index="1" aria-label="Video 2"></button>
-          <button class="teaser-dot" data-index="2" aria-label="Video 3"></button>
-          <button class="teaser-dot" data-index="3" aria-label="Video 4"></button>
-        </div>
+      <div class="teaser-indicators">
+        <button class="teaser-dot active" data-index="0" aria-label="Video 1"></button>
+        <button class="teaser-dot" data-index="1" aria-label="Video 2"></button>
+        <button class="teaser-dot" data-index="2" aria-label="Video 3"></button>
+        <button class="teaser-dot" data-index="3" aria-label="Video 4"></button>
       </div>
 
       <h2 class="subtitle has-text-centered animate-on-scroll" data-animation="fade-up">
