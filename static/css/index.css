@@ -1275,6 +1275,10 @@ section.hero.is-light.is-small {
 }
 
 @media (max-width: 768px) {
+  .capabilities-section {
+    padding: 4rem 1.5rem;
+  }
+
   .capabilities-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
