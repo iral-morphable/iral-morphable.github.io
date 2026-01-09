@@ -530,9 +530,10 @@ $(document).ready(function() {
             updateButton();
         });
 
-        // Toggle fullscreen when clicking on the video itself
-        video.addEventListener('click', (e) => {
+        // Function to toggle fullscreen
+        function toggleFullscreen(e) {
             e.stopPropagation();
+            e.preventDefault();
 
             // Check if currently in fullscreen
             const isFullscreen = document.fullscreenElement ||
@@ -552,18 +553,26 @@ $(document).ready(function() {
                     document.msExitFullscreen();
                 }
             } else {
-                // Enter fullscreen
+                // Enter fullscreen - on mobile, we need to enter fullscreen on the video element
                 if (video.requestFullscreen) {
                     video.requestFullscreen();
                 } else if (video.webkitRequestFullscreen) { // Safari
                     video.webkitRequestFullscreen();
+                } else if (video.webkitEnterFullscreen) { // iOS Safari
+                    video.webkitEnterFullscreen();
                 } else if (video.mozRequestFullScreen) { // Firefox
                     video.mozRequestFullScreen();
                 } else if (video.msRequestFullscreen) { // IE/Edge
                     video.msRequestFullscreen();
                 }
             }
-        });
+        }
+
+        // Toggle fullscreen when clicking on the video itself
+        video.addEventListener('click', toggleFullscreen);
+
+        // Also listen for touch events for mobile devices
+        video.addEventListener('touchend', toggleFullscreen);
 
         // Update button state when video play/pause state changes
         video.addEventListener('play', updateButton);
