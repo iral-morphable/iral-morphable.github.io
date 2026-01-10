@@ -8,7 +8,7 @@ class ParticleBackground {
 
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
-    this.particleCount = 100;
+    this.particleCount = 200;
     this.mouseX = 0;
     this.mouseY = 0;
 
