@@ -623,6 +623,37 @@ $(document).ready(function() {
     });
 
     // ============================================
+    // LAZY LOAD CAROUSEL VIDEOS
+    // ============================================
+
+    // Lazy loading observer for carousel videos
+    const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target.querySelector('video');
+                if (!video) return;
+
+                const source = video.querySelector('source[data-src]');
+                if (source && source.dataset.src) {
+                    source.src = source.dataset.src;
+                    source.removeAttribute('data-src');
+                    video.load();
+                }
+
+                // Stop observing once loaded
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '200px' // Start loading 200px before entering viewport
+    });
+
+    // Observe all carousel video items for lazy loading
+    carouselItems.forEach(item => {
+        lazyVideoObserver.observe(item);
+    });
+
+    // ============================================
     // VIDEO AUTOPLAY ON SCROLL (INTERSECTION OBSERVER)
     // ============================================
 
