@@ -343,7 +343,7 @@ $(document).ready(function() {
         './static/videos/360_pitch_semantic_seg.mp4',
         './static/videos/hand_tracking.mp4',
         './static/videos/obstacle_course.mp4',
-        './static/videos/perching_on_whiteboard.mov'
+        './static/videos/perching_on_whiteboard.mp4'
     ];
     var teaserVideoTitles = [
         'Pipe Inspection with 360° Pitch',
