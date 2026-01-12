@@ -928,18 +928,6 @@ section.hero.is-light.is-small {
 }
 
 
-/* Dark theme panels and sections */
-.interpolation-panel {
-  background: #1a1a1a;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.interpolation-panel .interpolation-image {
-  width: 100%;
-  border-radius: 5px;
-}
-
 /* BibTeX section - Dark theme */
 #BibTeX pre {
   background: #1a1a1a;
@@ -969,24 +957,6 @@ section.hero.is-light.is-small {
 
 .footer .icon-link:hover {
   color: #4a9eff;
-}
-
-.interpolation-video-column {
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
-  width: 100%;
-}
-#interpolation-image-wrapper img {
-  border-radius: 5px;
 }
 
 /* ============================================

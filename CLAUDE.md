@@ -14,7 +14,6 @@ This is a static GitHub Pages website for the MorphEUS (Morphable OmnidirEctiona
   - [static/js/](static/js/) - Bulma carousel/slider plugins and custom JavaScript
   - [static/videos/](static/videos/) - MP4 demonstration videos (experiments, simulations)
   - [static/images/](static/images/) - PNG/JPG images (CAD models, diagrams, photos)
-  - [static/interpolation/stacked/](static/interpolation/stacked/) - 240 sequential images for slider animation
   - [static/files/](static/files/) - PDF paper
 
 ## Local Development
@@ -37,13 +36,10 @@ Then open http://localhost:8000 in a browser.
 ## Key Features
 
 ### Video Carousel
-The homepage includes a Bulma carousel ([static/js/index.js](static/js/index.js:32-50)) that displays multiple demonstration videos. Videos auto-play, loop, and are muted by default. Carousel configuration:
+The homepage includes a Bulma carousel that displays multiple demonstration videos. Videos auto-play, loop, and are muted by default. Carousel configuration:
 - Shows 3 slides at once
 - Loops infinitely
 - Manual navigation (autoplay disabled)
-
-### Image Interpolation Slider
-The [static/js/index.js](static/js/index.js:3-21) file includes functionality to preload and display 240 sequential images for smooth interpolation effects. Images are loaded from `static/interpolation/stacked/` (numbered 000000.jpg through 000239.jpg).
 
 ## Content Updates
 
