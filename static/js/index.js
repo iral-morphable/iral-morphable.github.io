@@ -568,6 +568,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // iOS Safari fires webkitendfullscreen on the video element itself
+        // (not on the document), so we need this to remove controls on iOS
+        video.addEventListener('webkitendfullscreen', () => {
+            video.removeAttribute('controls');
+        });
+
         // Toggle fullscreen when clicking on the video itself
         video.addEventListener('click', toggleFullscreen);
 
