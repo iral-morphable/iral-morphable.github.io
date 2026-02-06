@@ -577,8 +577,30 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle fullscreen when clicking on the video itself
         video.addEventListener('click', toggleFullscreen);
 
-        // Also listen for touch events for mobile devices
-        video.addEventListener('touchend', toggleFullscreen);
+        // Touch handling for mobile: only trigger fullscreen on tap, not scroll
+        var touchStartX = 0;
+        var touchStartY = 0;
+        var touchMoved = false;
+
+        video.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchMoved = false;
+        }, { passive: true });
+
+        video.addEventListener('touchmove', function(e) {
+            var dx = e.touches[0].clientX - touchStartX;
+            var dy = e.touches[0].clientY - touchStartY;
+            if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
+                touchMoved = true;
+            }
+        }, { passive: true });
+
+        video.addEventListener('touchend', function(e) {
+            if (!touchMoved) {
+                toggleFullscreen(e);
+            }
+        });
 
         // Update button state when video play/pause state changes
         video.addEventListener('play', updateButton);
