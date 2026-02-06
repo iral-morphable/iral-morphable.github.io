@@ -17,21 +17,12 @@
   </style>
   <title>Morphable Quadrotor</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
+  <!-- Preconnect to external origins for faster resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans&family=Noto+Sans:wght@400;500;600;700&family=Castoro&display=swap"
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -43,11 +34,10 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/droneicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/bulma-carousel.min.js"></script>
+  <script defer src="./static/js/bulma-slider.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
 </head>
 <body>
 
@@ -423,7 +413,7 @@
 <!-- Animated Statistics Section -->
 <section class="section stats-section" id="statistics">
   <figure class="image">
-            <img src="./static/images/drone.png" alt="MorphEUS Drone" style="max-width: 60%; width: auto; height: auto; display: block; margin: 0 auto;">
+            <img src="./static/images/drone.png" alt="MorphEUS Drone" loading="lazy" decoding="async" style="max-width: 60%; width: auto; height: auto; display: block; margin: 0 auto;">
   </figure>
   
   <div class="container is-max-desktop">
@@ -486,7 +476,7 @@
             </p>
 
             <figure class="image">
-                <img src="./static/images/morphEUS_hardware.png" alt="MorphEUS Hardware Pipeline", style="max-width: 60%; width: auto; height: auto; display: block; margin: 0 auto;">
+                <img src="./static/images/morphEUS_hardware.png" alt="MorphEUS Hardware Pipeline" loading="lazy" decoding="async" style="max-width: 60%; width: auto; height: auto; display: block; margin: 0 auto;">
                 <figcaption class="is-italic has-text-centered", style="display: block; margin: 0 auto;">
                     Autonomous pipeline for the proposed variable-tilt morphable quadrotor.
                 </figcaption>
