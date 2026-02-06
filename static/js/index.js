@@ -11,10 +11,12 @@ class ParticleBackground {
     this.particleCount = 100;
     this.mouseX = 0;
     this.mouseY = 0;
+    this.visible = true;
+    this.animationId = null;
 
     this.init();
-    this.animate();
     this.setupEventListeners();
+    this.animate();
   }
 
   init() {
@@ -120,11 +122,21 @@ class ParticleBackground {
   }
 
   animate() {
+    if (!this.visible) {
+      this.animationId = null;
+      return;
+    }
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.updateParticles();
     this.connectParticles();
     this.drawParticles();
-    requestAnimationFrame(() => this.animate());
+    this.animationId = requestAnimationFrame(() => this.animate());
+  }
+
+  startAnimation() {
+    if (!this.animationId && this.visible) {
+      this.animate();
+    }
   }
 
   setupEventListeners() {
@@ -133,6 +145,20 @@ class ParticleBackground {
       this.mouseX = e.clientX;
       this.mouseY = e.clientY;
     });
+
+    // Pause particle animation when hero section is not visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        this.visible = entry.isIntersecting;
+        if (this.visible) {
+          this.startAnimation();
+        }
+      });
+    }, { threshold: 0 });
+
+    if (this.canvas.parentElement) {
+      observer.observe(this.canvas.parentElement);
+    }
   }
 }
 
@@ -293,13 +319,14 @@ class VideoHoverController {
 
 window.HELP_IMPROVE_VIDEOJS = false;
 
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-
+document.addEventListener('DOMContentLoaded', function() {
+    // Navbar burger toggle (vanilla JS replacement for jQuery)
+    document.querySelectorAll('.navbar-burger').forEach(function(burger) {
+      burger.addEventListener('click', function() {
+        burger.classList.toggle('is-active');
+        var menu = document.querySelector('.navbar-menu');
+        if (menu) menu.classList.toggle('is-active');
+      });
     });
 
     var options = {
@@ -318,23 +345,6 @@ $(document).ready(function() {
 
 		// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
-    }
 
     bulmaSlider.attach();
 
@@ -361,13 +371,10 @@ $(document).ready(function() {
         teaserVideo.src = teaserVideos[currentVideoIndex];
         teaserVideo.play();
 
-        // Update video title (get element each time to ensure it's found)
+        // Update video title
         var teaserVideoTitle = document.getElementById('teaser-video-title');
         if (teaserVideoTitle) {
             teaserVideoTitle.textContent = teaserVideoTitles[currentVideoIndex];
-            console.log('Updated title to:', teaserVideoTitles[currentVideoIndex]);
-        } else {
-            console.error('teaser-video-title element not found');
         }
 
         // Update indicator dots
@@ -526,7 +533,7 @@ $(document).ready(function() {
 
                 // Enter fullscreen
                 if (video.requestFullscreen) {
-                    video.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+                    video.requestFullscreen().catch(() => {});
                 } else if (video.webkitRequestFullscreen) { // Safari
                     video.webkitRequestFullscreen();
                 } else if (video.webkitEnterFullscreen) { // iOS Safari
@@ -630,9 +637,7 @@ $(document).ready(function() {
 
             if (entry.isIntersecting) {
                 // Video is in viewport - play it
-                video.play().catch(err => {
-                    console.log('Autoplay prevented:', err);
-                });
+                video.play().catch(() => {});
             } else {
                 // Video is out of viewport - pause it
                 video.pause();
@@ -662,15 +667,8 @@ $(document).ready(function() {
     const heroVideo = document.querySelector('.hero-video-background');
     if (heroVideo) {
         heroVideo.addEventListener('error', function() {
-            console.warn('Hero video failed to load, using fallback background');
             this.style.display = 'none';
         });
-    }
-
-    // Performance monitoring (optional)
-    if (window.performance && window.performance.now) {
-        const loadTime = window.performance.now();
-        console.log(`Page interactive in ${Math.round(loadTime)}ms`);
     }
 
     // Scroll to next section when clicking scroll indicator
@@ -698,4 +696,4 @@ $(document).ready(function() {
         });
     }
 
-})
+});
