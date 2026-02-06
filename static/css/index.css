@@ -1557,7 +1557,8 @@ section.hero.is-light.is-small {
   pointer-events: none;
 }
 
-.video-card-enhanced:hover .video-hover-overlay {
+.video-card-enhanced:hover .video-hover-overlay,
+.video-card-enhanced.title-visible .video-hover-overlay {
   opacity: 1;
 }
 
@@ -1570,7 +1571,8 @@ section.hero.is-light.is-small {
   transition: transform 0.3s var(--easing-smooth);
 }
 
-.video-card-enhanced:hover .video-info h4 {
+.video-card-enhanced:hover .video-info h4,
+.video-card-enhanced.title-visible .video-info h4 {
   transform: translateY(0);
 }
 

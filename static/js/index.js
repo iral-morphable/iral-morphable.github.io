@@ -365,6 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var teaserVideo = document.getElementById('teaser');
     var autoPlayEnabled = true;
     var userInteractionTimer = null;
+    var titleFlashTimer = null;
 
     function playTeaserVideo(index) {
         currentVideoIndex = index;
@@ -375,6 +376,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var teaserVideoTitle = document.getElementById('teaser-video-title');
         if (teaserVideoTitle) {
             teaserVideoTitle.textContent = teaserVideoTitles[currentVideoIndex];
+        }
+
+        // Briefly show the title overlay when switching videos
+        var wrapper = teaserVideo.closest('.video-card-enhanced');
+        if (wrapper) {
+            clearTimeout(titleFlashTimer);
+            wrapper.classList.add('title-visible');
+            titleFlashTimer = setTimeout(function() {
+                wrapper.classList.remove('title-visible');
+            }, 2500);
         }
 
         // Update indicator dots
@@ -402,6 +413,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (teaserVideo) {
+        // Show title briefly for the initial video
+        var initialWrapper = teaserVideo.closest('.video-card-enhanced');
+        if (initialWrapper) {
+            initialWrapper.classList.add('title-visible');
+            titleFlashTimer = setTimeout(function() {
+                initialWrapper.classList.remove('title-visible');
+            }, 2500);
+        }
+
         // Auto-advance when video ends
         teaserVideo.addEventListener('ended', function() {
             if (autoPlayEnabled) {
