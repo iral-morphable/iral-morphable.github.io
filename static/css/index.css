@@ -472,6 +472,10 @@ section.section figcaption,
   letter-spacing: -0.01em;
 }
 
+.teaser .subtitle strong {
+  color: #ffffff;
+}
+
 @media (min-width: 769px) {
   .teaser .subtitle {
     font-size: 1.25rem;
