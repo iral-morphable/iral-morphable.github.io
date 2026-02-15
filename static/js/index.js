@@ -329,6 +329,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
+    // ============================================
+    // INITIALIZE ANIMATION SYSTEMS (before carousel to ensure visibility)
+    // ============================================
+
+    // Initialize 3D particle background
+    const particleBackground = new ParticleBackground('particle-canvas');
+
+    // Initialize scroll animations
+    const scrollAnimations = new ScrollAnimationObserver();
+
+    // Initialize parallax effects
+    const parallax = new ParallaxController();
+
+    // Initialize animated statistics
+    const statCounter = new StatCounter();
+
+    // Initialize video hover effects
+    const videoHover = new VideoHoverController();
+
     var options = {
 			slidesToScroll: 1,
 			slidesToShow: 1,
@@ -344,9 +363,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    try {
+      var carousels = bulmaCarousel.attach('.carousel', options);
+    } catch (e) {
+      console.warn('Carousel initialization failed:', e);
+    }
 
-    bulmaSlider.attach();
+    try {
+      bulmaSlider.attach();
+    } catch (e) {
+      console.warn('Slider initialization failed:', e);
+    }
 
     // Sequential teaser video playback with manual navigation
     var teaserVideos = [
@@ -467,25 +494,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // ============================================
-    // INITIALIZE NEW ANIMATION SYSTEMS
-    // ============================================
-
-    // Initialize 3D particle background
-    const particleBackground = new ParticleBackground('particle-canvas');
-
-    // Initialize scroll animations
-    const scrollAnimations = new ScrollAnimationObserver();
-
-    // Initialize parallax effects
-    const parallax = new ParallaxController();
-
-    // Initialize animated statistics
-    const statCounter = new StatCounter();
-
-    // Initialize video hover effects
-    const videoHover = new VideoHoverController();
 
     // ============================================
     // CUSTOM VIDEO PLAY/PAUSE CONTROLS
