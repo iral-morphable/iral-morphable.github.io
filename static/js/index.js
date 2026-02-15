@@ -442,6 +442,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (teaserVideo) {
+        // Ensure autoplay on mobile (HTML autoplay attribute isn't always reliable)
+        teaserVideo.play().catch(function() {});
+
         // Show title briefly for the initial video
         var initialWrapper = teaserVideo.closest('.video-card-enhanced');
         if (initialWrapper) {

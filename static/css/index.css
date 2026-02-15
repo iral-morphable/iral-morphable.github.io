@@ -1147,7 +1147,7 @@ section.hero.is-light.is-small {
   justify-content: center !important;
   height: 100vh;
   max-height: 100vh;
-  overflow: hidden;
+  overflow: visible;
 }
 
 @media (max-width: 768px) {
