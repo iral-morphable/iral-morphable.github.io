@@ -33,6 +33,7 @@ html {
   background: var(--color-deep-space);
   /* Prevent white borders on mobile overscroll */
   min-height: 100%;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -41,9 +42,6 @@ body {
   color: #e4e6eb;
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
-  /* Prevent white background on mobile overscroll */
-  overscroll-behavior-y: none;
 }
 
 /* Smooth font rendering */
