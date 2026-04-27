@@ -1072,8 +1072,7 @@ section.hero.is-light.is-small {
 
 .hero-video-bg.is-fullheight {
   min-height: 100vh !important;
-  max-height: 100vh !important;
-  height: 100vh !important;
+  height: auto !important;
 }
 
 @media (max-width: 768px) {
@@ -1088,7 +1087,7 @@ section.hero.is-light.is-small {
 @media (min-width: 2000px) {
   .hero-video-bg.is-fullheight {
     min-height: 100vh !important;
-    max-height: 100vh !important;
+    height: auto !important;
   }
 }
 
@@ -1143,8 +1142,7 @@ section.hero.is-light.is-small {
   display: flex !important;
   align-items: flex-start !important;
   justify-content: center !important;
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100vh;
   overflow: visible;
 }
 
