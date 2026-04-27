@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="A novel omnidirectional quadrotor design with simultaneous control over position and orientation">
-  <meta name="keywords" content="MorphEUS, omnidirectional quadrotor, UAV, drone, aerial robotics, thrust vectoring, morphable quadrotor, 6-DoF control, variable-tilt rotors">
+  <meta name="keywords" content="MorphQuad, MorphEUS, morphable quadrotor, UAV, drone, aerial robotics, maneuverability, manipulation, resiliency, omnidirectional quadrotor, thrust vectoring, 6-DoF control, variable-tilt rotors">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- High-DPI Monitor Auto-scaling (4K and QHD+) -->
@@ -24,7 +24,7 @@
       }
     }
   </style>
-  <title>Morphable Quadrotor</title>
+  <title>MorphQuad: Morphable Quadrotor</title>
 
   <!-- Preconnect to external origins for faster resource loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,29 +103,35 @@
       <div class="columns is-centered">
         <div class="column has-text-centered hero-content-card">
           <div class="animate-fade-up" style="margin-bottom: 1.5rem;">
-            <img src="./static/images/logo.svg" alt="MorphEUS Logo" style="max-width: 500px; width: 25vw; min-width: 200px; height: auto; filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));">
+            <img src="./static/images/logo.svg" alt="MorphQuad Logo" style="max-width: 500px; width: 25vw; min-width: 200px; height: auto; filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));">
           </div>
-          <h1 class="title is-1 publication-title animate-fade-up"><strong>Morph-EUS:</strong> <strong>Morph</strong>able Omnidir<strong>E</strong>ctional <strong>U</strong>nmanned <strong>S</strong>ystem</h1>
+          <h1 class="title is-1 publication-title animate-fade-up"><strong>MorphQuad:</strong> Morphable Quadrotor for Superhuman Maneuverability, Manipulation, and Resiliency</h1>
           <div class="is-size-5 publication-authors animate-stagger">
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/ivan-bao-575340191/">Ivan Bao</a>,</span>
+              <a href="https://www.linkedin.com/in/jose-diaz-peon/">José Díaz Peón González Pacheco</a><sup>★</sup>,</span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/jose-diaz-peon/">José C. Díaz Peón González Pacheco</a>,
+              Jiawei Xu<sup>★</sup>,
             </span>
             <span class="author-block">
-              <a href="https://anavsalkar.github.io/">Atharva Navsalkar</a>,
+              <a href="https://www.andzhao.com/">Andrew Zhao</a><sup>★</sup>,
             </span>
             <span class="author-block">
-              <a href="https://schefferac2020.github.io/">Andrew Scheffer</a>,
+                <a href="https://hongyu-zhou.github.io/">Hongyu Zhou</a><sup>†</sup>,
             </span>
             <span class="author-block">
-            <a href="https://www.linkedin.com/in/sashreek-shankar-b504041aa/">Sashreek Shankar</a>,
+              <a href="https://anavsalkar.github.io/">Atharva Navsalkar</a><sup>†</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.andzhao.com/">Andrew Zhao</a>,
+              <a href="https://schefferac2020.github.io/">Andrew Scheffer</a><sup>†</sup>,
             </span>
             <span class="author-block">
-                <a href="https://hongyu-zhou.github.io/">Hongyu Zhou</a>,
+              Amrith Malli Reddi<sup>†</sup>,
+            </span>
+            <span class="author-block">
+            <a href="https://www.linkedin.com/in/sashreek-shankar-b504041aa/">Sashreek Shankar</a><sup>†</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/ivan-bao-575340191/">Yuqing (Ivan) Bao</a><sup>†</sup>,
             </span>
             <span class="author-block">
                 <a href="https://vasileiostzoumas.com/">Vasileios Tzoumas</a>
@@ -133,8 +139,11 @@
           </div>
 
           <div class="is-size-5 publication-authors animate-stagger">
-            <span class="author-block">University of Michigan</span>,
-            <span class="author-block"><sup>*</sup>Ordered Alphabetically</span>
+            <span class="author-block">Aerospace Engineering, University of Michigan</span>
+          </div>
+          <div class="is-size-6 publication-authors animate-stagger">
+            <span class="author-block"><sup>★</sup>Equal first-author contribution</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>†</sup>Equal second-author contribution</span>
           </div>
           <div class="is-size-5 publication-authors animate-stagger">
             <span class="author-block">ICRA 2025 OCRAIM Workshop</span>
@@ -276,7 +285,7 @@
             </p>
 
             <figure class="image">
-                <img src="./static/images/morphEUS_hardware.png" alt="MorphEUS Hardware Pipeline" loading="lazy" decoding="async" style="max-width: 60%; width: auto; height: auto; display: block; margin: 0 auto;">
+                <img src="./static/images/morphEUS_hardware.png" alt="MorphQuad Hardware Pipeline" loading="lazy" decoding="async" style="max-width: 60%; width: auto; height: auto; display: block; margin: 0 auto;">
                 <figcaption class="is-italic has-text-centered", style="display: block; margin: 0 auto;">
                     Autonomous pipeline for the proposed variable-tilt morphable quadrotor.
                 </figcaption>
