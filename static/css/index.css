@@ -1420,6 +1420,13 @@ section.hero.is-light.is-small {
   position: relative;
 }
 
+/* Feature flag: hide play button + hint when videos are disabled.
+   See data-videos attribute on .capabilities-section in index.html. */
+.capabilities-section[data-videos="off"] .capability-play,
+.capabilities-section[data-videos="off"] .capability-hint {
+  display: none;
+}
+
 .capability-description {
   transition: filter 0.3s ease, opacity 0.3s ease;
 }

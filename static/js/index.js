@@ -755,6 +755,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // Capability video modal
 // ============================================
 (function () {
+    // Feature flag: skip wiring + preload when videos are disabled.
+    // See data-videos attribute on .capabilities-section in index.html.
+    const capabilitiesSection = document.querySelector('.capabilities-section');
+    if (capabilitiesSection && capabilitiesSection.dataset.videos === 'off') return;
+
     const modal = document.getElementById('capability-video-modal');
     if (!modal) return;
     const video = modal.querySelector('.video-modal-video');
