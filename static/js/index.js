@@ -750,3 +750,83 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+// ============================================
+// Capability video modal
+// ============================================
+(function () {
+    const modal = document.getElementById('capability-video-modal');
+    if (!modal) return;
+    const video = modal.querySelector('.video-modal-video');
+
+    function openModal(src) {
+        video.src = src;
+        video.muted = true;
+        modal.hidden = false;
+        // Force reflow so the opacity transition triggers from 0 -> 1.
+        void modal.offsetWidth;
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
+        video.play().catch(() => {});
+    }
+
+    function closeModal() {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+        modal.classList.remove('is-open');
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+    }
+
+    document.querySelectorAll('.capability-card .capability-play').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const card = btn.closest('.capability-card');
+            const src = card && card.dataset.video;
+            if (src) openModal(src);
+        });
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.hasAttribute('data-close')) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    // Defer capability-video preloading until the main teaser is ready, so
+    // these clips never compete with it for bandwidth on initial page load.
+    let preloadStarted = false;
+    function preloadCapabilityVideos() {
+        if (preloadStarted) return;
+        preloadStarted = true;
+        const urls = new Set();
+        document.querySelectorAll('.capability-card[data-video]').forEach((card) => {
+            if (card.dataset.video) urls.add(card.dataset.video);
+        });
+        urls.forEach((url) => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'video';
+            link.href = url;
+            link.type = 'video/mp4';
+            document.head.appendChild(link);
+        });
+    }
+
+    const teaser = document.getElementById('teaser');
+    if (teaser) {
+        if (teaser.readyState >= 4) {
+            preloadCapabilityVideos();
+        } else {
+            teaser.addEventListener('canplaythrough', preloadCapabilityVideos, { once: true });
+        }
+    }
+    // Fallback: if the teaser never fires canplaythrough (looping autoplay can
+    // be flaky on some browsers), preload a few seconds after window load.
+    window.addEventListener('load', () => {
+        setTimeout(preloadCapabilityVideos, 4000);
+    }, { once: true });
+})();

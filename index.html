@@ -191,7 +191,7 @@
       <div class="teaser-video-container animate-on-scroll" data-animation="scale-up">
         <div class="teaser-video-wrapper video-card-enhanced">
           <video id="teaser" autoplay muted loop playsinline>
-            <source src="./static/videos/intro_video.mp4"
+            <source src="./static/videos/intro_video_web.mp4"
                     type="video/mp4">
           </video>
 
@@ -221,22 +221,34 @@
     </h2>
 
     <div class="capabilities-grid">
-      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="0">
+      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="0" data-video="./static/videos/maneuverability_web.mp4">
         <div class="capability-icon"><i class="fas fa-arrows-alt"></i></div>
         <h3 class="capability-title">Maneuverability</h3>
         <p class="capability-description">Reaching remote locations, traversing tight spaces, and inspecting complex infrastructure, such as around and in-between pipes and ducts from any direction.</p>
+        <button class="capability-play" type="button" aria-label="Play Maneuverability demo video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="capability-hint" aria-hidden="true">Watch the demo</span>
       </div>
 
-      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="100" data-video="./static/videos/manipulation_web.mp4">
         <div class="capability-icon"><i class="fas fa-hands"></i></div>
         <h3 class="capability-title">Manipulation</h3>
         <p class="capability-description">Turning valves, pushing obstacles away, and pressing sensors against infrastructure to assess structural integrity.</p>
+        <button class="capability-play" type="button" aria-label="Play Manipulation demo video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="capability-hint" aria-hidden="true">Watch the demo</span>
       </div>
 
-      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="200">
+      <div class="capability-card animate-on-scroll" data-animation="fade-up" data-delay="200" data-video="./static/videos/resiliency_web.mp4">
         <div class="capability-icon"><i class="fas fa-shield-alt"></i></div>
         <h3 class="capability-title">Resiliency</h3>
         <p class="capability-description">Moving and applying forces with accuracy despite challenging disturbances, such as wind, wall, ceiling, and ground effects, and counter-acting contact forces, e.g., friction.</p>
+        <button class="capability-play" type="button" aria-label="Play Resiliency demo video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="capability-hint" aria-hidden="true">Watch the demo</span>
       </div>
     </div>
   </div>
@@ -310,6 +322,14 @@
 }</code></pre>
   </div>
 </section>
+
+<div class="video-modal" id="capability-video-modal" role="dialog" aria-modal="true" aria-label="Capability demo video" hidden>
+  <div class="video-modal-backdrop" data-close></div>
+  <div class="video-modal-content">
+    <button class="video-modal-close" type="button" aria-label="Close video" data-close>&times;</button>
+    <video class="video-modal-video" controls playsinline preload="none" muted></video>
+  </div>
+</div>
 
 </body>
 </html>
